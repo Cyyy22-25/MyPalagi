@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Love 💚</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-image: url('86f54c23-bed4-496b-bec9-d86e709d118f.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #0bd40b;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.5);
+      margin: 80px auto;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 700px;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+    }
+
+    .heart {
+      color: rgb(91, 218, 6);
+      font-size: 2em;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .button {
+      background-color: limegreen;
+      border: none;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      border-radius: 30px;
+      cursor: pointer;
+      color: rgb(19, 221, 12);
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: green;
+      transform: scale(1.1);
+    }
+
+    .gallery {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .gallery img {
+      border-radius: 15px;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 3px solid rgb(15, 202, 46);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    audio {
+      display: none;
+    }
+
+    /* Balloon styling */
+    .balloon {
+      position: fixed;
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 60px;
+      color: limegreen;
+      animation: floatUp 4s ease-in-out forwards, pop 0.4s ease-out 3.8s forwards;
+      z-index: 9999;
+      display: none;
+    }
+
+    @keyframes floatUp {
+      0% { bottom: -100px; opacity: 0; }
+      20% { opacity: 1; }
+      80% { bottom: 70%; }
+      100% { bottom: 75%; }
+    }
+
+    @keyframes pop {
+      0% { transform: translateX(-50%) scale(1); opacity: 1; }
+      100% { transform: translateX(-50%) scale(2); opacity: 0; }
+    }
+</body>
+</style>
+</head>
+
+  <!-- Music that plays on click -->
+  <audio id="bg-music" loop>
+    <source src="audio/PALAGI - TJxKZ  LIVE SESSIONS.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating balloon -->
+  <div id="balloon" class="balloon">🎈</div>
+
+  <div class="container">
+    <h1>Hi Bal 💚</h1>
+    <p>I made this just for you. You make my heart smile every single day! 🥹🌸 Miss na kita kaya ginawa ko para sayo I Love you Always</p>
+    <p class="heart">💚</p>
+    <p>Forever yours,<br> Your Cy The Penguin I Love You Always </p>
+
+    <button class="button" onclick="startMusic()">Play Music 🎶</button>
+    <button class="button" onclick="showSurprise()">Click me for a surprise ✨</button>
+
+    <div id="photoGallery" class="gallery" style="display:none;">
+      <!-- Replace image URLs with your own pics -->
+      <img src="image/alily.jpg" alt="Cute memory 1">
+      <img src= "image/bal.jpg"Cute memory 2">
+      <img src="image/sheil.jpg" alt="Cute memory 3">
+      <img src="image/myforever.jpg" alt="Cute memory 4">
+    </div>
+  </div>
+
+  <script>
+    function startMusic() {
+      const music = document.getElementById("bg-music");
+      music.play();
+    }
+
+    function showSurprise() {
+      const gallery = document.getElementById("photoGallery");
+      const balloon = document.getElementById("balloon");
+
+      // Show balloon
+      balloon.style.display = "block";
+
+      // Show gallery after balloon pops
+      setTimeout(() => {
+        gallery.style.display = "flex";
+      }, 4200);
+
+      // Hide balloon after animation
+      setTimeout(() => {
+        balloon.style.display = "none";
+      }, 4500);
+    }
+  </script>
+
+</body>
+</html>
